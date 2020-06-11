@@ -6,15 +6,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //#2
     var liList = document.getElementsByClassName('li')
-    for (var li in liList){
-        liList[li].style.backgroundColor = "yellow"
+    for (var i=0; i<liList.length; i++){
+        liList[i].style.backgroundColor = "yellow"
     }
 
     //#3
     var imageTag = document.createElement("img")
-    imageTag.setAtrribute('src', 'http://49.media.tumblr.com/tumblr_m6qt1rjPSz1rxjzkho1_500.gif')
+    imageTag.src = 'http://49.media.tumblr.com/tumblr_m6qt1rjPSz1rxjzkho1_500.gif'
     greeting.appendChild(imageTag)
-
+    
     //#4 Create and add a ul element to the end of the body with a class of "todo-items"
     var ulElement = document.createElement("ul")
     ulElement.className = "todo-items"
@@ -23,7 +23,10 @@ document.addEventListener('DOMContentLoaded', function () {
     //#5 Go through the array `['make coffee','eat donut','change diapers','drive to work']` and create an li element for each item e.g. `<li>make coffee</li>`
     var array = ['make coffee','eat donut','change diapers','drive to work']
     for (var element in array){
-        var newElement = document.createElement(array[element])
+        var newElement = document.createElement("li")
+        newElement.innerHTML = array[element]
+        newElement.className = "todo-items"
+        ulElement.appendChild(newElement)
     }
  
 
